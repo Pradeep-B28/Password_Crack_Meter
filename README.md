@@ -239,7 +239,7 @@ Password_Crack_Meter/
   manifest.json         Progressive Web App manifest
   vercel.json           Production edge headers and CSP configuration
   assets/
-    icon.svg            Adaptive lock vector favicon
+    favicon.png         Wrench Wise brand favicon
     logo.png            Wrench Wise high-resolution brand asset
   styles/
     tokens.css          Color tokens, typography scale, and elevation
