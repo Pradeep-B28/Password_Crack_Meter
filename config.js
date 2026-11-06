@@ -4,7 +4,7 @@ export const CONFIG = {
   version: "1.0.0",
 
   // The live address. Set in Phase 4 (deploy). Used for the share link and link previews.
-  siteUrl: "",
+  siteUrl: "https://password-check-iota.vercel.app",
 
   // Sales WhatsApp: digits only, country code first. Empty hides the WhatsApp button.
   salesWhatsApp: "",
