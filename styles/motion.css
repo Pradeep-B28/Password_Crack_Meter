@@ -1,0 +1,158 @@
+/* Loader Overlay */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--dur-fade) var(--ease-out), visibility var(--dur-fade) var(--ease-out);
+  animation: cssLoaderFallback 2s forwards;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 260px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.loader-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.loader-lock {
+  width: 56px;
+  height: 56px;
+}
+
+.loader-lock-shackle {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: drawShackle 0.6s var(--ease-out) forwards 0.1s;
+}
+
+.loader-lock-body {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawBody 0.6s var(--ease-out) forwards 0.2s;
+}
+
+@keyframes drawShackle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawBody {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.loader-progress-track {
+  width: 160px;
+  height: 3px;
+  background: var(--surface-2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.loader-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: var(--brand-grad);
+  transform: translateX(-100%);
+  animation: fillProgress 0.75s var(--ease-out) forwards;
+}
+
+@keyframes fillProgress {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* CSS Fallback if JS fails */
+@keyframes cssLoaderFallback {
+  0%, 85% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* State when loader is finished or dismissed */
+.loader-overlay.loader-done {
+  animation: none !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Hero entrance animation */
+.hero-animated {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--dur-fade) var(--ease-out), transform var(--dur-fade) var(--ease-out);
+}
+
+.hero-animated.hero-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skip intro if already seen or reduced motion */
+.no-intro .loader-overlay {
+  display: none !important;
+}
+
+.no-intro .hero-animated {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Headline cross-fade */
+.headline-swap {
+  animation: headlineCrossFade var(--dur-quick) var(--ease-out);
+}
+
+@keyframes headlineCrossFade {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .loader-overlay {
+    display: none !important;
+  }
+
+  .hero-animated {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

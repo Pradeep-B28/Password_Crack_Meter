@@ -1,0 +1,15 @@
+{
+  "name": "Password Crack Meter | Wrench Wise",
+  "short_name": "Crack Meter",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
