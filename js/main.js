@@ -1,8 +1,10 @@
 import { CONFIG } from "../config.js";
 import { COPY, t } from "./copy.js";
 import { getStoredTheme, setStoredTheme } from "./store.js";
-import { initLoader } from "./motion.js";
+import { initLoader, initScrollReveal } from "./motion.js";
 import { initMeterUI } from "./meter-ui.js";
+import { initSuggestUI } from "./suggest-ui.js";
+import { initSectionsUI } from "./sections-ui.js";
 
 function setupTheme() {
   const toggleBtn = document.getElementById("theme-toggle");
@@ -43,6 +45,9 @@ function init() {
   setupTheme();
   setupLogoFallback();
   initMeterUI();
+  initSuggestUI();
+  initSectionsUI();
+  initScrollReveal();
 }
 
 if (document.readyState === "loading") {

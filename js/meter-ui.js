@@ -2,6 +2,8 @@ import { analyze, ATTACKERS, DEFAULT_SPEED } from "./engine/meter.js";
 import { CONFIG } from "../config.js";
 import { COPY, t } from "./copy.js";
 import { prefersReducedMotion } from "./motion.js";
+import { updateDSALive } from "./sections-ui.js";
+import { getShareUrl } from "./links.js";
 
 let selectedAttackerId = "fast";
 let prevLevel = null;
@@ -119,6 +121,8 @@ function runAnalysis() {
     prevReasonSignature = "";
     prevTokenSignature = "";
     clearAriaLive();
+    updateDSALive(null);
+    updateShareButton(null);
     return;
   }
 
@@ -145,6 +149,8 @@ function runAnalysis() {
   prevLevel = result.level;
 
   renderResult(result);
+  updateDSALive(result);
+  updateShareButton(result);
   scheduleAriaLive(result);
 }
 
@@ -252,6 +258,7 @@ function setupAttackerPicker() {
         const speed = getAttackerSpeed(selectedAttackerId);
         const result = analyze(input.value, speed);
         renderHeadline(result.headline);
+        updateShareButton(result);
         scheduleAriaLive(result);
       }
     });
@@ -267,6 +274,26 @@ function updateAttackerNote() {
   if (!noteEl) return;
   const noteText = COPY.attackers[selectedAttackerId] || "";
   noteEl.textContent = noteText;
+}
+
+function updateShareButton(result) {
+  const shareWrap = document.getElementById("share-section");
+  const shareBtn = document.getElementById("share-whatsapp-btn");
+  if (!shareWrap || !shareBtn) return;
+
+  if (CONFIG.features && CONFIG.features.share === false) {
+    shareWrap.classList.add("hidden");
+    return;
+  }
+
+  if (!result || result.empty) {
+    shareWrap.classList.add("hidden");
+    shareBtn.removeAttribute("href");
+    return;
+  }
+
+  shareBtn.href = getShareUrl(result.label);
+  shareWrap.classList.remove("hidden");
 }
 
 function renderReasons(reasons) {

@@ -162,12 +162,175 @@
                 <h3 class="tokens-heading">How an attacker reads it</h3>
                 <div id="tokens-list" class="tokens-list"></div>
               </div>
+
+              <div id="share-section" class="share-section-wrap hidden">
+                <a id="share-whatsapp-btn" class="button button-share" target="_blank" rel="noopener noreferrer">
+                  <svg class="share-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  <span>Share on WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <section id="privacy-strip" class="privacy-section reveal-on-scroll">
+    <div class="container">
+      <div class="card privacy-card">
+        <div class="privacy-shield-col">
+          <svg class="privacy-big-shield" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+        </div>
+        <div class="privacy-content-col">
+          <h2 class="privacy-lead-line">Nothing you type is stored or sent. It all runs on your device.</h2>
+          <div class="privacy-proof-grid">
+            <div class="privacy-proof-box">
+              <h3 class="privacy-proof-title">Check it yourself</h3>
+              <p class="privacy-proof-text">Load this page, turn on airplane mode, and it still works. The page is also locked so that it cannot send anything out.</p>
+            </div>
+            <div class="privacy-proof-box">
+              <h3 class="privacy-proof-title">Good practice</h3>
+              <p class="privacy-proof-text">Still, test something similar instead of a password you really use. That is a good habit on any site.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="suggest-section" class="suggest-section reveal-on-scroll">
+    <div class="container">
+      <div class="card suggest-card">
+        <div class="suggest-header-row">
+          <div class="suggest-title-block">
+            <h2 class="section-title">A stronger password</h2>
+            <p class="section-sub">Generate a truly random password that an attacker cannot crack with pattern attacks.</p>
+          </div>
+          <button id="generate-btn" type="button" class="button button-primary">Generate</button>
+        </div>
+
+        <div id="suggest-result-wrap" class="suggest-result-box hidden">
+          <div class="suggest-output-row">
+            <span id="suggest-password-display" class="suggest-password-text font-mono"></span>
+            <button id="copy-suggest-btn" type="button" class="button button-secondary copy-btn" aria-label="Copy password" title="Copy password">
+              <svg class="copy-icon copy-icon-clipboard" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <svg class="copy-icon copy-icon-check hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="copy-btn-label">Copy</span>
+            </button>
+          </div>
+          <div class="suggest-meta-row">
+            <span id="suggest-time-display" class="suggest-time-tag"></span>
+            <p id="suggest-note-display" class="suggest-note-text">Made on your device and not saved anywhere. Keep it in a password manager.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dsa-section" class="dsa-section reveal-on-scroll">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">The DSA behind this page</h2>
+      </div>
+      <div class="dsa-grid">
+        <div class="card dsa-card">
+          <div class="dsa-icon-badge">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="dsa-card-title">Hash set</h3>
+          <p id="dsa-hash-text" class="dsa-card-body"></p>
+          <p id="dsa-hash-live" class="dsa-card-live hidden"></p>
+        </div>
+
+        <div class="card dsa-card">
+          <div class="dsa-icon-badge">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3 class="dsa-card-title">Pattern checks</h3>
+          <p id="dsa-pattern-text" class="dsa-card-body"></p>
+        </div>
+
+        <div class="card dsa-card">
+          <div class="dsa-icon-badge">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <line x1="8" y1="6" x2="16" y2="6"></line>
+              <line x1="16" y1="14" x2="16" y2="18"></line>
+              <path d="M16 10h.01"></path>
+              <path d="M12 10h.01"></path>
+              <path d="M8 10h.01"></path>
+              <path d="M12 14h.01"></path>
+              <path d="M8 14h.01"></path>
+              <path d="M12 18h.01"></path>
+              <path d="M8 18h.01"></path>
+            </svg>
+          </div>
+          <h3 class="dsa-card-title">Guess maths</h3>
+          <p id="dsa-math-text" class="dsa-card-body"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="habits-section" class="habits-section reveal-on-scroll">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Three habits that help</h2>
+      </div>
+      <div class="habits-grid">
+        <div class="card habit-card">
+          <span class="habit-number">1</span>
+          <p class="habit-text">Use 16 or more characters.</p>
+        </div>
+        <div class="card habit-card">
+          <span class="habit-number">2</span>
+          <p class="habit-text">Never reuse a password.</p>
+        </div>
+        <div class="card habit-card">
+          <span class="habit-number">3</span>
+          <p class="habit-text">Use a password manager and turn on two-step login.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta-section" class="cta-section reveal-on-scroll">
+    <div class="container">
+      <div class="card cta-card">
+        <div class="cta-inner">
+          <h2 class="cta-title">Want to build tools like this?</h2>
+          <p id="cta-body-text" class="cta-body"></p>
+          <div class="cta-buttons-row">
+            <a id="cta-explore-btn" class="button button-primary cta-btn">Explore the program</a>
+            <a id="cta-whatsapp-btn" class="button button-secondary cta-btn hidden">
+              <svg class="btn-wa-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              <span>Talk to us on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="container footer-container">
