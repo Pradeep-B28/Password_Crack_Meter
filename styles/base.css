@@ -108,6 +108,12 @@ input {
   padding: 0 1.25rem;
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

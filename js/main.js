@@ -40,6 +40,14 @@ function setupLogoFallback() {
   }
 }
 
+function checkSelfTest() {
+  if (window.location.search.includes("test=1")) {
+    import("./selftest.js").then((mod) => {
+      mod.runSelfTest();
+    });
+  }
+}
+
 function init() {
   initLoader();
   setupTheme();
@@ -48,6 +56,7 @@ function init() {
   initSuggestUI();
   initSectionsUI();
   initScrollReveal();
+  checkSelfTest();
 }
 
 if (document.readyState === "loading") {
